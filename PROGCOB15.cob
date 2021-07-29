@@ -1,0 +1,41 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. PROGCOB15.
+      ********************************
+      * AREA DE COMENTARIOS - REMARKS
+      * AUTHOR: RODSON NAZARIO
+      * DATA: 28/07/2021
+      * OBJETIVO: RECEBER NUMERO E GERAR TABUADA
+      * PARAGRAFOS E LOGICA ESTRUTURADA - PERFORM UNTIL
+      ********************************
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SPECIAL-NAMES.
+           DECIMAL-POINT IS COMMA.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+           COPY 'BOOK.COB'.
+
+       PROCEDURE DIVISION.
+      * PARAGRAFO *
+       0001-PRINCIPAL.
+           PERFORM 0100-INICIALIZAR.
+           IF WRK-VENDAS > 0
+            PERFORM 0200-PROCESSAR UNTIL WRK-VENDAS = 0
+           END-IF.
+           PERFORM 0300-FINALIZAR.
+           STOP RUN.
+
+       0100-INICIALIZAR.
+           DISPLAY 'VENDAS: '
+            ACCEPT WRK-VENDAS FROM CONSOLE.
+
+       0200-PROCESSAR.
+           ADD 1 TO WRK-QUANTIDADE.
+           ADD WRK-VENDAS TO WRK-ACUMULADO.
+           ACCEPT WRK-VENDAS.
+
+       0300-FINALIZAR.
+           DISPLAY '-------------------------------------'.
+           DISPLAY 'ACUMULADO: ' WRK-ACUMULADO.
+           DISPLAY 'QUANTIDADE: ' WRK-QUANTIDADE.
+           DISPLAY 'FINAL DE PROCESSAMENTO'.

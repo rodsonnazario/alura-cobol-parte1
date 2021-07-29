@@ -1,0 +1,38 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. PROGCOB04.
+      ********************************
+      * AREA DE COMENTARIOS - REMARKS
+      * AUTHOR: RODSON NAZARIO
+      * DATA: 27/07/2021
+      * OBJETIVO: RECEBER NOME, SALARIO E CPF
+      * EDICAO/FORMATACAO
+      ********************************
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SPECIAL-NAMES.
+           DECIMAL-POINT IS COMMA.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       77 WRK-NOME       PIC X(20) VALUES SPACES.
+       77 WRK-SALARIO    PIC 9(06)V99 VALUES ZEROS.
+       77 WRK-SALARIO-ED PIC $ZZZ.ZZ9,99 VALUE ZEROS.
+       01 WRK-CPF.
+           02 WRK-CPF1   PIC 9(03) VALUES ZEROS.
+           02 WRK-CPF2   PIC 9(03) VALUES ZEROS.
+           02 WRK-CPF3   PIC 9(03) VALUES ZEROS.
+           02 WRK-CPF4   PIC 9(02) VALUES ZEROS.
+       PROCEDURE DIVISION.
+           DISPLAY 'NOME: '
+            ACCEPT WRK-NOME    FROM CONSOLE.
+           DISPLAY 'SALARIO: '
+            ACCEPT WRK-SALARIO FROM CONSOLE.
+           DISPLAY 'CPF: '
+            ACCEPT WRK-CPF FROM CONSOLE.
+      **** MOSTRAR DADOS
+           DISPLAY '================================'
+           DISPLAY 'NOME: 'WRK-NOME.
+           MOVE WRK-SALARIO TO WRK-SALARIO-ED.
+           DISPLAY 'SALARIO: ' WRK-SALARIO-ED.
+           DISPLAY 'CPF: ' WRK-CPF1 '.' WRK-CPF2 '.' WRK-CPF3
+           '-' WRK-CPF4.
+           STOP RUN.

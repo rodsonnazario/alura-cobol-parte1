@@ -1,0 +1,44 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. PROGCOB13.
+      ********************************
+      * AREA DE COMENTARIOS - REMARKS
+      * AUTHOR: RODSON NAZARIO
+      * DATA: 27/07/2021
+      * OBJETIVO: RECEBER NUMERO E GERAR TABUADA
+      * PARAGRAFOS E LOGICA ESTRUTURADA - PERFORM
+      ********************************
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SPECIAL-NAMES.
+           DECIMAL-POINT IS COMMA.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       77 WRK-NUMERO       PIC 9(02) VALUES ZEROS.
+       77 WRK-CONTADOR     PIC 9(02) VALUES 1.
+       77 WRK-RESULTADO    PIC Z(03) VALUES ZEROS.
+
+       PROCEDURE DIVISION.
+      * PARAGRAFO *
+       0001-PRINCIPAL.
+           PERFORM 0100-INICIALIZAR.
+           IF WRK-NUMERO > 0
+            PERFORM 0200-PROCESSAR
+           END-IF.
+           PERFORM 0300-FINALIZAR.
+           STOP RUN.
+
+       0100-INICIALIZAR.
+           DISPLAY 'NUMERO: '
+            ACCEPT WRK-NUMERO FROM CONSOLE.
+
+       0200-PROCESSAR.
+           DISPLAY '-------------------------------------'.
+           PERFORM 10 TIMES
+            COMPUTE WRK-RESULTADO  = WRK-NUMERO * WRK-CONTADOR
+            DISPLAY WRK-NUMERO ' * ' WRK-CONTADOR ' = ' WRK-RESULTADO
+            ADD 1 TO WRK-CONTADOR
+           END-PERFORM.
+
+       0300-FINALIZAR.
+           DISPLAY '-------------------------------------'.
+           DISPLAY 'FINAL DE PROCESSAMENTO'.

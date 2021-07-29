@@ -1,0 +1,16 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. PROGCOB02.
+      ********************************
+      * AREA DE COMENTARIOS - REMARKS
+      * AUTHOR: RODSON NAZARIO
+      * DATA: 27/07/2021
+      * OBJETIVO: RECEBER E IMPRIMIR UMA STRING
+      ********************************
+       ENVIRONMENT DIVISION.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       77 WRK-NOME PIC X(20) VALUES SPACES.
+       PROCEDURE DIVISION.
+           ACCEPT WRK-NOME FROM CONSOLE.
+           DISPLAY 'INPUT.. ' WRK-NOME.
+           STOP RUN.
