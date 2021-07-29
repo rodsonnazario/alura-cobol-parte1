@@ -1,1 +1,1 @@
-# Curso de Cobol para plataforma OPEN
+# Curso "Cobol: Primeiros Passos" da Alura, para plataforma OPEN.
